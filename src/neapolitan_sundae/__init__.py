@@ -36,3 +36,21 @@ Let's go! 🚀
 """
 
 __version__ = "24.4"
+
+
+from typing import cast
+
+
+class SingletonBase:
+    """https://stackoverflow.com/a/55988133"""
+
+    def __init__(self):
+        self._modules = cast(set[str], set())
+
+    def __getattr__(self, module_name: str):
+        if module_name not in self._modules:
+            self._modules[module_name] = __import__(module_name)
+        return self._modules[module_name]
+
+
+Singleton = SingletonBase()

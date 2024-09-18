@@ -1,0 +1,23 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "neapolitan"
+authors = [{name = "Carlton Gibson", email = "carlton.gibson@noumenal.es"}]
+readme = "README.rst"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dynamic = ["version", "description"]
+dependencies = ["Django", "django-filter"]
+
+[project.urls]
+Repository = "https://github.com/carltongibson/neapolitan"
+Docs = "https://noumenal.es/neapolitan/"
+
+[project.optional-dependencies]
+docs = ["Sphinx"]
+tests = ["coverage[toml]", "django_coverage_plugin"]
+
+[tool.coverage.run]
+plugins = ["django_coverage_plugin"]

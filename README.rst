@@ -39,7 +39,12 @@ I want easy CRUD views for it, without it taking all day:
 
 Neapolitan's ``CRUDView`` provides the standard list, detail,
 create, edit, and delete views for a model, as well as the hooks you need to
-be able to customise any part of that.
+be able to customize any part of that.
+
+Neapolitan-Sundae is a little more opinionated than "vanilla" Neapolitan with
+some of its preferences, specifically with list views. Will use
+`django-tables2 <https://github.com/jieter/django-tables2>` instead of a
+standard template.
 
 Neapolitan provides base templates and re-usable template tags to make getting
 your model on the page as easy as possible.

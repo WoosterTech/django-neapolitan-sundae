@@ -1,7 +1,7 @@
 from django import template
 from django.utils.safestring import mark_safe
 
-from neapolitan.views import Role
+from neapolitan_sundae.views import Role
 
 register = template.Library()
 

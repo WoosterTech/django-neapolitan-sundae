@@ -5,7 +5,8 @@ from django.core.management import call_command
 from django.test import TestCase
 from django.urls import reverse
 from django.utils.html import escape
-from neapolitan.views import CRUDView, Role
+
+from neapolitan_sundae.views import CRUDView, Role
 
 from .models import Bookmark, NamedCollection
 

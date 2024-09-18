@@ -1,23 +1,58 @@
-[build-system]
-requires = ["flit_core >=3.2,<4"]
-build-backend = "flit_core.buildapi"
-
-[project]
-name = "neapolitan"
-authors = [{name = "Carlton Gibson", email = "carlton.gibson@noumenal.es"}]
+[tool.poetry]
+name = "django-neapolitan-sundae"
+version = "24.4"
+description = ""
+authors = ["Karl Wooster <karl.wooster@alleima.com>", "Carlton Gibson <carlton.gibson@noumenal.es"]
+license = "MIT"
 readme = "README.rst"
-license = {file = "LICENSE"}
-classifiers = ["License :: OSI Approved :: MIT License"]
-dynamic = ["version", "description"]
-dependencies = ["Django", "django-filter"]
+packages = [{include = "neapolitan_sundae", from = "src"}]
 
-[project.urls]
-Repository = "https://github.com/carltongibson/neapolitan"
-Docs = "https://noumenal.es/neapolitan/"
+[tool.poetry.dependencies]
+python = "^3.11"
+django = ">=4.2,<5.2"
+django-filter = "^24.3"
+pydantic = "^2.8.2"
+django-rubble = {version = "^0.7.0b0", allow-prereleases = true}
+django-tables2 = "^2.7.0"
+django-taggit = {version = "^6.0.0", optional = true}
+django-crispy-forms = "^2.3"
+alleima-tools = {version = "^0.2.0b1", source = "gitea"}
 
-[project.optional-dependencies]
-docs = ["Sphinx"]
-tests = ["coverage[toml]", "django_coverage_plugin"]
+[tool.poetry.group.dev]
+optional = true
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.1"
+mypy = "^1.11.1"
+django-stubs = {extras = ["mypy-compatible"], version = "^5.0.4"}
+
+[tool.poetry.group.docs]
+optional = true
+
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^8.0.2"
+
+[tool.poetry.group.test]
+optional = true
+
+
+[tool.poetry.group.test.dependencies]
+coverage = {extras = ["toml"], version = "^7.6.1"}
+django-coverage-plugin = "^3.1.0"
+
+[tool.poetry.extras]
+taggit-compatible = ["django-taggit"]
+
+[[tool.poetry.source]]
+name = "gitea"
+url = "http://uskegit.app.mtrltech.com/api/packages/alleima-kennewick/pypi/simple/"
+priority = "explicit"
 
 [tool.coverage.run]
 plugins = ["django_coverage_plugin"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

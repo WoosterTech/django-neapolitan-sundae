@@ -1,0 +1,10 @@
+Using version ^5.1 for django
+
+Updating dependencies
+Resolving dependencies...
+
+Package operations: 0 installs, 1 update, 0 removals
+
+  - Updating django (4.0 -> 5.1)
+
+Writing lock file
